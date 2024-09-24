@@ -1,0 +1,27 @@
+.hero{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    height:50vh;
+}
+.title{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    line-height: 48px;
+    font-weight: 600;
+    margin:20px;
+}
+.title > h1{
+        font-size: 35px;
+        height: 32px;
+        color:#ffff;
+}
+.HeroImage{
+    width:350px;
+    height:300px;
+    margin-left: 300px;
+    background-image: url(../../../Assests/vibrating-headphone.png);
+}

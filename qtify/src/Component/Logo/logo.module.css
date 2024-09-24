@@ -1,0 +1,36 @@
+.logo-container {
+  display: flex; 
+  align-items: center;
+  background-color: rgb(13, 230, 13);
+  padding: 10px; 
+}
+
+.logo-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px; 
+  height: 35px; 
+  background-image: url('../../../Assests/SearchIcon.png'); 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgb(13, 230, 13);
+  background-blend-mode: multiply;
+  color: rgba(255, 255, 255, 1); 
+  font-family: Font Awesome 6 Pro; 
+  font-size: 28px; 
+  font-weight: 900;
+  line-height: 35px; 
+  text-align: center;
+  padding-top: 5px;
+}
+
+.logo-icon-text {
+  margin-top: 5px; 
+  font-family: Avenir Next Condensed;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 24px; 
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 1);
+}
