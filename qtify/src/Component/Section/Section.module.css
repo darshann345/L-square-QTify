@@ -7,6 +7,7 @@
 .toggleText{
     color: var(--color-primary);
     cursor: pointer;
+    margin-right : 100vw;
 }
 
 .sectionInnerWrapper{

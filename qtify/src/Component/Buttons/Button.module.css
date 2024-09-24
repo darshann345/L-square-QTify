@@ -1,5 +1,5 @@
 .button {
-    background-color: var(--color-black);
+    background-color: black;
     color: var(--color-primary);
     border-radius: 12px;
     cursor: pointer;
@@ -9,5 +9,6 @@
     Width: 157px;
     Height: 40px;
     font-size:medium;
+    color: rgb(25, 218, 35);
 
 }

@@ -1,27 +1,26 @@
-.hero{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    height:50vh;
+.Hero {
+  height: 270px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
 }
-.title{
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
-    align-items: center;
-    line-height: 48px;
-    font-weight: 600;
-    margin:20px;
+.HeroTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 48px;
+  font-weight: 600;
+  margin: 20px;
+  color:white;
 }
-.title > h1{
-        font-size: 35px;
-        height: 32px;
-        color:#ffff;
+.HeroTitle > h1{
+    height: 48px;
+    font-size: 32px;
 }
-.HeroImage{
-    width:350px;
-    height:300px;
-    margin-left: 300px;
-    background-image: url(../../../Assests/vibrating-headphone.png);
+.HeroImage {
+  height: 212px;
+  width: 212px;
 }

@@ -1,31 +1,55 @@
-import React from 'react';
-import { Card as MUICard, CardContent, CardMedia, Typography, Chip } from '@mui/material';
-import './Cart.module.css'; 
+import React from "react";
+import styles from "./Card.module.css";
+import { Chip, Tooltip } from "@mui/material";
 
-const Card = ({ album }) => {
-    return (
-        <div className="wrapper">
-            <MUICard className="card">
-                <CardMedia
-                    component="img"
-                    height="300"
-                    image={album.image}
-                    alt={album.title}
-                    sx={{ objectFit: 'cover' }}
+function Card({ data, type }) {
+  switch (type) {
+    case "album": {
+      const { image, follows, title, songs } = data;
+      return (
+        <Tooltip title={`${songs?.length} songs`} placement="top" arrow>
+          <div className={styles.wrapper}>
+            <div className={styles.card}>
+              <img src={image} alt="album" />
+              <div className={styles.banner}>
+                <Chip
+                  label={`${follows} Follows`}
+                  className={styles.chip}
+                  size="small"
                 />
-                <div className="banner">
-                    <Chip label={`${album.follows} Follows`} className="chip" size="small" />
-                </div>
-                <CardContent>
-                    <div className="titleWrapper">
-                        <Typography variant="subtitle2" noWrap>
-                            {album.title}
-                        </Typography>
-                    </div>
-                </CardContent>
-            </MUICard>
+              </div>
+            </div>
+            <div className={styles.titleWrapper}>
+              <p>{title}</p>
+            </div>
+          </div>
+        </Tooltip>
+      );
+    }
+
+    case "song": {
+      const { image, likes, title, songs } = data;
+      return (
+        <div className={styles.wrapper}>
+          <div className={styles.card}>
+            <img src={image} alt="album" loading="lazy" />
+            <div className={styles.banner}>
+              <div className={styles.pill}>
+                <p>{likes} Likes</p>
+              </div>
+            </div>
+          </div>
+          <div className={styles.titleWrapper}>
+            <p>{title}</p>
+          </div>
         </div>
-    );
-};
+      );
+    }
+
+    default:
+      return <></>;
+  }
+}
 
 export default Card;
+

@@ -1,17 +1,18 @@
-import React from 'react';
-import Box from '@mui/material/Box';
-import styles from './Hero.module.css';
-
+import React from 'react'
+import HeroImage from '../../../src/Assests/vibrating-headphone.png'
+import styles from './Hero.module.css'
 const Hero = () => {
   return (
-    <Box className={styles.hero}>
-      <Box className={styles.title}>
-        <h1>100 Thousand Songs, ad-free</h1>
-        <h1>Over thousand podcast episoders</h1>
-      </Box>
-      <Box className={styles.HeroImage} />
-    </Box>
-  );
-};
+    <>  
+        <section className={styles.Hero}>
+            <div className={styles.HeroTitle}>
+                <h1>100 Thousand Songs, ad-free</h1>
+                <h1>Over thousands podcast episodes</h1>
+            </div>
+                <img className={styles.HeroImage} src={HeroImage} alt='headphone'/>
+        </section>
+    </>
+  )
+}
 
-export default Hero;
+export default Hero

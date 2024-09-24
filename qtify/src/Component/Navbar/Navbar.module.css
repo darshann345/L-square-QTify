@@ -1,12 +1,11 @@
 .navbar{
-    display:flex;
-    flex-direction:row;
-    justify-content:flex-start;
-    align-items:center;
-    width: 100%;
-    height: 100px;
-    opacity: 0px;
-    border: 1px solid black;
-    background-color:rgb(13, 230, 13);
-
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-primary);
+    width: 100vw;
+    height: 75px;
+    padding: 0px 32px;
+    background-color: rgb(25, 218, 35);
 }

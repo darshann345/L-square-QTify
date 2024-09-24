@@ -1,15 +1,14 @@
-import React from 'react';
-import styles from './logo.module.css';
+import React from "react";
+import styles from "./../Logo/logo.module.css";
+import LogoImg from "../../../src/Assests/logo.png";
 
-const Logo = ({ logoText }) => {
-    return (
-        <div className={styles['logo-container']}>
-            <span className={styles['logo-icon']}>
-                Q
-            </span>            
-            <span className={styles['logo-icon-text']}>{logoText}</span>
-        </div>
-    );
+const Logo=()=>{
+
+return(
+    <div className={styles.logoDiv}>
+        <img src={LogoImg} width={67} alt="logo"/>
+    </div>
+)
 };
 
 export default Logo;

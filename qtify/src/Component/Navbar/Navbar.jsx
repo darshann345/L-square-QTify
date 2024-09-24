@@ -1,18 +1,22 @@
-import React from 'react';
-import styles from './Navbar.module.css';
-import Logo from '../Logo/Logo';
-import Search from '../Search/Search';
-import FeedBackButton from '../FeedBack/FeedBackButton'; 
+import React from "react";
+import styles from "./Navbar.module.css";
+import Logo from "../Logo/Logo";
+import SearchBar from "../Search/Search";
+import Button from "../Buttons/Button";
+
 const Navbar = () => {
+
     return (
         <>
-            <div className={styles.navbar}>
-                <Logo logoText="tify" /> 
-                <Search search={"Search a song of your choice"} />
-                <FeedBackButton />
-            </div>
+            <nav className={styles.navbar}>
+                <Logo />
+                <SearchBar search={"Search a song of your choice"} />
+                <Button children={"Give Feedback"} />
+            </nav>
+
         </>
-        
+
     );
-};
+}
+
 export default Navbar;

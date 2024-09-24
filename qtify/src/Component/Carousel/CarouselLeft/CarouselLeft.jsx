@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import {ReactComponent as LeftArrow} from "../../../assets/LeftArrow.svg"
+import {ReactComponent as LeftArrow} from "./../../../../src/Assests/LeftArrow.svg";
 import { useSwiper, Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import styles from "./CarouselLeft.module.css";
+import styles from "./../CarouselLeft/CarouselLeft.module.css";
 
 
 const CarouselLeft = () => {
