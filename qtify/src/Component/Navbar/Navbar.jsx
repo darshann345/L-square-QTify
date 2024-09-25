@@ -12,6 +12,7 @@ const Navbar = () => {
                 <Logo />
                 <SearchBar search={"Search a song of your choice"} />
                 <Button children={"Give Feedback"} />
+                
             </nav>
 
         </>

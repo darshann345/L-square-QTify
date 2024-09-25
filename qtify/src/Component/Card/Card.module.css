@@ -6,6 +6,7 @@
        position: relative;
        height: 205px;
        width: 160px;
+       
        border-radius: 10px;
        overflow: hidden;
    }

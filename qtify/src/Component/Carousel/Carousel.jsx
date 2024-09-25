@@ -12,6 +12,7 @@ import styles from "./Carousel.module.css";
 import { Navigation } from 'swiper/modules';
 
 
+
 const Controls=({data})=>{
     let swiper = useSwiper();
     

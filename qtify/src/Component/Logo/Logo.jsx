@@ -7,6 +7,7 @@ const Logo=()=>{
 return(
     <div className={styles.logoDiv}>
         <img src={LogoImg} width={67} alt="logo"/>
+        
     </div>
 )
 };

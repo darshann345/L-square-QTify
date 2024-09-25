@@ -51,6 +51,7 @@ function App() {
     catch(error){
       return null;
     }
+    
   }
 
 const generateNewSongs=(index)=>{

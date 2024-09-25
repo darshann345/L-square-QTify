@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Card.module.css";
 import { Chip, Tooltip } from "@mui/material";
 
+
 function Card({ data, type }) {
   switch (type) {
     case "album": {

@@ -8,7 +8,9 @@
     color: var(--color-primary);
     cursor: pointer;
     margin-right : 100vw;
+    
 }
+
 
 .sectionInnerWrapper{
     margin-top: 18px;

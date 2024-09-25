@@ -24,6 +24,9 @@ const Search = ({search}) => {
           ),
         }} 
       />
+
+      
+
     </div>
   );
 };

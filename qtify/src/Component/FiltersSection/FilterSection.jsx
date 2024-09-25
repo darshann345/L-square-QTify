@@ -10,6 +10,7 @@ const FilterSection = ({type, title, value, filteredData, handleChangeIndex}) =>
   return (
     <div className={styles.wrapper}>
        
+       
             <div className={styles.heading}>
                <h3>{title}</h3> 
             </div>
