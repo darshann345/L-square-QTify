@@ -6,6 +6,8 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Search = ({search}) => {
   return (
+
+    
     <div className={styles.searchContainer}>
       <TextField
         className={styles.searchBar}
