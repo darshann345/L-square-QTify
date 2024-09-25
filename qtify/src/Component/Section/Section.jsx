@@ -28,13 +28,13 @@ const Section = () => {
     return (
         <div className="sectionInnerWrapper" sx ={{backgroundColor : 'black'}}>
             <div className="sectionTop" sx ={{backgroundColor : 'black'}}>
-                {/* <Typography variant="h4">Top Albums</Typography>
+                <Typography variant="h4">Top Albums</Typography>
                 <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
                     <Button variant="outlined"  sx = {{backgroundColor : 'black' , color : 'rgb(25, 218, 35)'}} className="toggleText" onClick={handleToggle}>
                         {expanded ? 'Collapse' : 'Show All'}
       
                         </Button>
-                </div> */}
+                </div>
 
                 
                 
