@@ -1,112 +1,135 @@
-import logo from './logo.svg';
-import Navbar from './Component/Navbar/Navbar';
-import Hero from './Component/Hero/Hero';
-import Section from './Component/Section/Section';
-import FilterSection from './Component/FiltersSection/FilterSection';
-import {fetchTopAlbums, fetchNewAlbums, fetchSongs} from './Api/api';
-import { useEffect, useState } from 'react';
-import styles from "./App.module.css"
+import React from 'react'
+import Navbar from './Components/Navbar/Navbar.jsx'
+import Hero from './Components/Hero/Hero.jsx'
+import styles from './App.module.css'
+import { useEffect, useState } from 'react'
+import { fetchTopAlbums, fetchNewAlbums, fetchSongs } from './Api/api.js'
+import Section from './Components/Section/Section.jsx'
+import FilterSection from './Components/FilterSection/FilterSection'
 
 function App() {
 
-  const[topAlbumSongs,setTopAlbumSongs]=useState([]);
-  const[newAlbumSongs,setNewAlbumSongs]=useState([]);
+  const [topAlbumSongs, setTopAlbumSongs] = useState([])
+  const [newAlbumSongs, setNewAlbumSongs] = useState([])
+  const [filteredDataValues, setFilteredDataValues] = useState([''])
+  const [toggle, setToggle] = useState(false)
+  const [value, setValue] = useState(0);
 
-  const[songsData, setSongsData]=useState([]);
+  const generateSongsData = (value) => {
 
-  const[value,setValue]= useState(0);
+    let songData = newAlbumSongs[0].songs;
 
-  const[filteredData, setFilteredData]=useState([]);
+    let key;
+    if (value === 0) {
 
-
-  const generateTopAlbumSongs=async()=>{
-    try{
-      const res= await fetchTopAlbums();
-    setTopAlbumSongs(res);
+      setFilteredDataValues(songData)
+      return;
     }
-    catch(error){
-      console.log(error);
-      return null;
-    } 
+
+    else if (value === 1) {
+      key = 'rock'
+
+    }
+
+    else if (value === 2) {
+      key = 'pop'
+    }
+
+    else if (value === 3) {
+      key = 'jazz'
+    }
+
+    else if (value === 4) {
+      key = 'blues'
+    }
+
+    const data = songData.filter((item) => {
+      return item.genre.key === key
+
+    })
+    setFilteredDataValues(data)
+
   }
 
-  const generateNewAlbumSongs=async()=>{
-    try{
-      const res= await fetchNewAlbums();
-    setNewAlbumSongs(res);
-    }
-    catch(error){
-      console.log(error);
-      return null;
-    } 
+  const handleChange = (event, newValue) => {
+    setValue(newValue)
+
+    generateSongsData(newValue)
+
+  }
+  const handleToggle = () => {
+    setToggle(!toggle)
   }
 
-  const generateSongs=async()=>{
-    try{
-      console.log("generateSongs");
-      const res=await fetchSongs();
-      setSongsData(res);
-      setFilteredData(res);
-    }
-    catch(error){
-      return null;
-    }
+  const filteredData = (val) => {
+    generateSongsData(val)
     
   }
 
-const generateNewSongs=(index)=>{
+  const generateTopAlbumSongs = async () => {
+    try {
+      const topAlbumSongs = await fetchTopAlbums()
+      setTopAlbumSongs(topAlbumSongs)
+    }
+    catch (error) {
+      console.log(error)
+      return null
+    }
 
-  let key="";
-  if(index===0){
-
-    return;
-  }
-  else if(index===1){
-    key="rock";
-  }
-  else if(index===2){
-    key="pop";
   }
 
-  else if(index===3){
-    key="jazz";
+  const generateNewAlbumSongs = async () => {
+    try {
+      const newAlbumSongs = await fetchNewAlbums()
+      setNewAlbumSongs(newAlbumSongs);
+     
+    }
+    catch (error) {
+      console.log(error)
+      return null
+    }
   }
-  else if(index===4){
-    key="blues";
+
+
+  const generateFilterSongs = async () => {
+
+    try {
+      const newAlbumSongs = await fetchSongs()
+      setFilteredDataValues(newAlbumSongs);
+    }
+
+    catch (error) {
+      console.log(error)
+      return null 
+
+    }
   }
 
-  let newSongsArray=songsData.filter((song)=>{
-    console.log("key: ",key)
-    return(song.genre.key===key);
-  })
+  useEffect(() => {
+    // eslint-disable-next-line
+  }, [value])
 
-  setFilteredData(newSongsArray);
-}
-
-
- const handleChangeIndex= async(newValue)=>{
-  setValue(newValue);
-  generateNewSongs(newValue);
- }
-
-  useEffect(()=>{
+  useEffect(() => {
+    
     generateTopAlbumSongs();
     generateNewAlbumSongs();
-    generateSongs();
-  },[])
+    generateFilterSongs();
+    // setFilteredDataValues(newAlbumSongs);
 
+  }, [])
+  
+  
   return (
-    <div className="App">
+    <>
       <Navbar />
       <Hero />
       <div className={styles.sectionWrapper}>
-      <Section type='album' title='Top Albums' data={topAlbumSongs}/>
-      <Section type='album' title='New Albums' data={newAlbumSongs}/>
-      <FilterSection  type='song' title='Songs' value={value} filteredData={filteredData} handleChangeIndex={handleChangeIndex}/>
+      <Section type='album' title='Top Albums' data={topAlbumSongs} style={{ color: 'white' }} />
+      <Section type='album' title='New Albums' data={newAlbumSongs} style={{ color: 'white' }} />
+        <FilterSection data={newAlbumSongs} type='songFilter' title='Songs' filteredData={filteredData} filteredDataValues={filteredDataValues} value={value} handleChange={handleChange} handleToggle={handleToggle}/>
       </div>
-    </div>
-  );
+    </>
+  )
 }
 
-export default App;
-
+export default App
